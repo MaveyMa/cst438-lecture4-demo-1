@@ -62,6 +62,11 @@ describe("Getty api call", function() {
         });
     }); 
     
-    
-    
+    it("should return a list of images", function(done) {
+        getty.makeApiRequest(function(error, imgURI) {
+           expect(imgURI).to.be.a('array');
+           expect(imgURI.length).to.be.above(0);
+           done;
+        });
+    });
 }); 
