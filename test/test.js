@@ -43,7 +43,7 @@ describe("Twitter api call", function() {
 }); 
 
 var stub = sinon.stub(getty, "makeApiRequest").callsFake(function(callback) {
-         callback(null, "https://api.gettyimages.com/v3/search/images?phrase=bird"); 
+         callback(null, "http://gettyimages.com/bird.png"); 
     });
     
 describe("Getty api call", function() {
@@ -59,9 +59,9 @@ describe("Getty api call", function() {
     }); 
     
     it("should return a list of images", function(done) {
-        getty.makeApiRequest(function(error, imgURI) {
-           expect(imgURI).to.be.a('array');
-           expect(imgURI.length).to.be.above(0);
+        getty.makeApiRequest(function(error, images) {
+           expect(images).to.be.a('array');
+           expect(images.length).to.be.above(0);
            done;
         });
     });
