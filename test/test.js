@@ -21,9 +21,6 @@ var sandbox;
 //     sandbox.restore();
 //   });
 
-
-
-
 describe("Twitter api call", function() {
     it("should return without errors", function(done) {
         twitter.doAllTwitterRequests(function(error, tweets) {
@@ -46,13 +43,12 @@ describe("Twitter api call", function() {
 }); 
 
 var stub = sinon.stub(getty, "makeApiRequest").callsFake(function(callback) {
-         callback(null, "http://gettyimages.com/bird.png"); 
+         callback(null, "https://api.gettyimages.com/v3/search/images?phrase=bird"); 
     });
     
 describe("Getty api call", function() {
     
     it("should return without errors", function(done) {
-        
         getty.makeApiRequest(function(error, imgURI) {
             //console.log("tweets: " + tweets.length); 
             console.log("imageURI: " + imgURI); 
