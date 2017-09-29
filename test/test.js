@@ -37,7 +37,7 @@ describe("Twitter api call", function() {
     
     it("should return a list of tweets", function(done) {
         twitter.doAllTwitterRequests(function(error, tweets) {
-            //console.log("tweets: " + tweets.length); 
+            //asdkfljconsole.log("tweets: " + tweets.length); 
             expect(tweets).to.be.a('array'); 
             expect(tweets.length).to.be.above(0); 
             done(); 
